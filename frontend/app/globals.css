@@ -1,0 +1,64 @@
+* { box-sizing: border-box; font-family: Arial, Helvetica, sans-serif !important; }
+html, body { background-color: #060a0f !important; color: #fff; margin: 0; padding: 0; }
+@import "tailwindcss";
+
+:root {
+  --background: #0B0F14;
+  --foreground: #ffffff;
+  --accent-blue: #00AFFF;
+  --deep-space: #0f2a44;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent-blue: var(--accent-blue);
+  --color-deep-space: var(--deep-space);
+  --font-sans: Arial, Helvetica, sans-serif;
+  --font-mono: Arial, Helvetica, sans-serif;
+}
+
+html, body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif !important;
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
+/* Custom Utilities */
+.glass-panel {
+  background: rgba(4, 8, 15, 0.92);
+  border: 1px solid rgba(0, 175, 255, 0.1);
+}
+
+.morph-blob,
+.holo-grid,
+.glow-blob,
+.particle,
+.aurora-wrap,
+.scanning-bar,
+.speed-lines,
+.marquee-track,
+.hero-video-bg {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+
+/* Performance Fix: Background pattern to replace ParticleField */
+.optimized-bg-pattern {
+  background-image: radial-gradient(circle at 2px 2px, rgba(0, 229, 255, 0.05) 1px, transparent 0);
+  background-size: 40px 40px;
+}
+
+.text-glow {
+  text-shadow: 0 0 20px rgba(0, 175, 255, 0.5);
+}
+
+@media (min-width: 1025px) {
+  body { cursor: none !important; }
+  a, button, [role="button"], .interactive { cursor: none !important; }
+}
