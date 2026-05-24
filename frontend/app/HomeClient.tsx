@@ -1439,6 +1439,16 @@ export default function HomeClient() {
         }
 
         /* ══ RESPONSIVE ══ */
+        @media (max-width: 1024px) {
+          .pricing-popular {
+            padding-top: 56px !important;
+          }
+        }
+        @media (max-width: 768px) {
+          .pricing-popular {
+            padding-top: 76px !important;
+          }
+        }
         @media (max-width: 960px) {
           .section { padding: 64px 0; overflow-x: hidden; }
           .section-inner { padding: 0 20px; }

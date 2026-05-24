@@ -440,17 +440,70 @@ function FloatInput({
   const [val, setVal] = useState("");
   const raised = focused || val.length > 0;
   const Tag = as as any;
+  const inputRef = useRef<HTMLInputElement | HTMLTextAreaElement | null>(null);
+
+  const validateInput = (fieldName: string, value: string, element: HTMLInputElement | HTMLTextAreaElement) => {
+    if (!element) return;
+    
+    if (fieldName === "name") {
+      const trimmed = value.trim();
+      if (trimmed === "") {
+        if (required) {
+          element.setCustomValidity("Please enter your full name.");
+        } else {
+          element.setCustomValidity("");
+        }
+      } else if (!/^[A-Za-z\s]+$/.test(value)) {
+        element.setCustomValidity("Please enter a valid name. Only alphabets and spaces are allowed.");
+      } else {
+        element.setCustomValidity("");
+      }
+    } else if (fieldName === "phone") {
+      if (value === "") {
+        if (required) {
+          element.setCustomValidity("Please enter your phone number.");
+        } else {
+          element.setCustomValidity("");
+        }
+      } else if (!/^[0-9]{10}$/.test(value)) {
+        element.setCustomValidity("Please enter a valid 10-digit phone number.");
+      } else {
+        element.setCustomValidity("");
+      }
+    } else {
+      element.setCustomValidity("");
+    }
+  };
+
+  useEffect(() => {
+    if (inputRef.current) {
+      validateInput(name, val, inputRef.current);
+    }
+  }, [name, val, required]);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    let value = e.target.value;
+    
+    if (name === "name") {
+      value = value.replace(/[^A-Za-z\s]/g, "");
+    } else if (name === "phone") {
+      value = value.replace(/[^0-9]/g, "").slice(0, 10);
+    }
+
+    setVal(value);
+  };
 
   return (
     <div className={`float-field ${focused ? "is-focused" : ""} ${raised ? "is-raised" : ""} ${className}`}>
       <Tag
+        ref={inputRef}
         type={type}
         name={name}
         id={name}
         required={required}
         rows={rows}
         value={val}
-        onChange={(e: any) => setVal(e.target.value)}
+        onChange={handleChange}
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
         className="float-input"

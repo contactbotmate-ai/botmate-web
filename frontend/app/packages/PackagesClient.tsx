@@ -443,6 +443,16 @@ function PricingSection() {
           box-shadow: 0 0 22px rgba(0,229,255,0.14);
           transform: translateY(-2px);
         }
+         @media (max-width: 1024px) {
+          .pricing-popular {
+            padding-top: 56px !important;
+          }
+        }
+        @media (max-width: 768px) {
+          .pricing-popular {
+            padding-top: 76px !important;
+          }
+        }
         @media (max-width: 960px) {
           .pricing-grid {
             grid-template-columns: 1fr;
@@ -843,6 +853,50 @@ function BookCallModal({ onClose }: { onClose: () => void }) {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
 
+  const nameRef = useRef<HTMLInputElement>(null);
+  const phoneRef = useRef<HTMLInputElement>(null);
+
+  const validateName = (val: string, element: HTMLInputElement | null) => {
+    if (!element) return;
+    const trimmed = val.trim();
+    if (trimmed === "") {
+      element.setCustomValidity("Please enter your full name.");
+    } else if (!/^[A-Za-z\s]+$/.test(val)) {
+      element.setCustomValidity("Please enter a valid name. Only alphabets and spaces are allowed.");
+    } else {
+      element.setCustomValidity("");
+    }
+  };
+
+  const validatePhone = (val: string, element: HTMLInputElement | null) => {
+    if (!element) return;
+    if (val === "") {
+      element.setCustomValidity("Please enter your phone number.");
+    } else if (!/^[0-9]{10}$/.test(val)) {
+      element.setCustomValidity("Please enter a valid 10-digit phone number.");
+    } else {
+      element.setCustomValidity("");
+    }
+  };
+
+  useEffect(() => {
+    validateName(name, nameRef.current);
+  }, [name]);
+
+  useEffect(() => {
+    validatePhone(phone, phoneRef.current);
+  }, [phone]);
+
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value.replace(/[^A-Za-z\s]/g, "");
+    setName(value);
+  };
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value.replace(/[^0-9]/g, "").slice(0, 10);
+    setPhone(value);
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
@@ -882,8 +936,9 @@ function BookCallModal({ onClose }: { onClose: () => void }) {
               <div className="form-group">
                 <label htmlFor="modal-name">Full Name</label>
                 <input
+                  ref={nameRef}
                   id="modal-name" type="text" required placeholder="e.g. John Doe"
-                  value={name} onChange={(e) => setName(e.target.value)}
+                  value={name} onChange={handleNameChange}
                 />
               </div>
               <div className="form-row">
@@ -897,8 +952,9 @@ function BookCallModal({ onClose }: { onClose: () => void }) {
                 <div className="form-group">
                   <label htmlFor="modal-phone">Phone Number</label>
                   <input
+                    ref={phoneRef}
                     id="modal-phone" type="tel" required placeholder="+91 XXXXX XXXXX"
-                    value={phone} onChange={(e) => setPhone(e.target.value)}
+                    value={phone} onChange={handlePhoneChange}
                   />
                 </div>
               </div>

@@ -96,7 +96,7 @@ export default function ChatBotPopup() {
   };
 
   return (
-    <div className="fixed bottom-24 right-6 z-50 flex flex-col items-end gap-4">
+    <div className="chatbot-popup-container">
 
       {/* BACK TO TOP BUTTON */}
       <AnimatePresence>
@@ -202,6 +202,42 @@ export default function ChatBotPopup() {
 
       {/* STYLES */}
       <style jsx>{`
+        .chatbot-popup-container {
+          position: fixed;
+          bottom: 96px;
+          right: 24px;
+          z-index: 50;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          gap: 16px;
+        }
+
+        @media (max-width: 1024px) {
+          .chatbot-popup-container {
+            bottom: 80px;
+            right: 16px;
+            gap: 12px;
+          }
+          
+          .chat-toggle {
+            width: 48px !important;
+            height: 48px !important;
+            border-radius: 12px !important;
+          }
+          
+          .chat-toggle :global(img) {
+            width: 36px !important;
+            height: 36px !important;
+          }
+
+          .chat-container {
+            width: calc(100vw - 32px) !important;
+            max-width: 360px !important;
+            height: 460px !important;
+          }
+        }
+
         .chat-container {
           width: 360px;
           height: 520px;

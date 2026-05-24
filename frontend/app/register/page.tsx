@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -12,6 +12,28 @@ export default function RegisterPage() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  const nameRef = useRef<HTMLInputElement>(null);
+
+  const validateName = (val: string, element: HTMLInputElement | null) => {
+    if (!element) return;
+    const trimmed = val.trim();
+    if (trimmed === "") {
+      element.setCustomValidity("Please enter your full name.");
+    } else if (!/^[A-Za-z\s]+$/.test(val)) {
+      element.setCustomValidity("Please enter a valid name. Only alphabets and spaces are allowed.");
+    } else {
+      element.setCustomValidity("");
+    }
+  };
+
+  useEffect(() => {
+    validateName(name, nameRef.current);
+  }, [name]);
+
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value.replace(/[^A-Za-z\s]/g, "");
+    setName(value);
+  };
 
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -66,10 +88,11 @@ export default function RegisterPage() {
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-neutral-400 mb-2">Full Name</label>
             <input
+              ref={nameRef}
               id="name"
               type="text"
               value={name}
-              onChange={(e) => setName(e.target.value)}
+              onChange={handleNameChange}
               className="w-full px-5 py-4 bg-neutral-800 border border-neutral-700 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
               placeholder="John Doe"
               required

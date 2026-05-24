@@ -9,7 +9,7 @@ export default function WhatsAppPopup() {
     const link = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
     return (
-        <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50">
+        <div className="whatsapp-popup-container">
             <a
                 href={link}
                 target="_blank"
@@ -29,6 +29,21 @@ export default function WhatsAppPopup() {
                 {/* Pulse Effect */}
                 <span className="absolute -inset-2 rounded-full border border-[#25D366] opacity-0 group-hover:opacity-100 animate-ping pointer-events-none" />
             </a>
+
+            <style jsx>{`
+                .whatsapp-popup-container {
+                    position: fixed;
+                    bottom: 24px;
+                    right: 24px;
+                    z-index: 50;
+                }
+                @media (max-width: 1024px) {
+                    .whatsapp-popup-container {
+                        bottom: 16px;
+                        right: 16px;
+                    }
+                }
+            `}</style>
         </div>
     );
 }
