@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import './BubbleMenu.css';
 
@@ -163,7 +164,13 @@ export default function BubbleMenu({
   return (
     <div className="mobile-only">
       <nav className={containerClassName} style={style} aria-label="Main navigation">
-        <div className="bubble logo-bubble" aria-label="Logo" style={{ background: menuBg }}>
+        <Link
+          href="/"
+          className="bubble logo-bubble"
+          aria-label="Logo"
+          style={{ background: menuBg, cursor: 'pointer', textDecoration: 'none' }}
+          onClick={() => setIsMenuOpen(false)}
+        >
           <span className="logo-content">
             {typeof logo === 'string' ? (
               <Image src={logo} alt="Logo" width={40} height={40} className="bubble-logo" />
@@ -171,7 +178,7 @@ export default function BubbleMenu({
               logo
             )}
           </span>
-        </div>
+        </Link>
 
         <button
           type="button"

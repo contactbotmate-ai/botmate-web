@@ -15,6 +15,7 @@ const NAV_LINKS = [
   { name: "Services", href: "/services" },
   { name: "Packages", href: "/packages" },
   { name: "Contact", href: "/contact" },
+  { name: "Blog", href: "/blog" },
 ];
 
 export default function Navbar() {
@@ -91,7 +92,8 @@ export default function Navbar() {
             { label: 'about', href: '/about', ariaLabel: 'About Us', rotation: 8, hoverStyles: { bgColor: '#00e5ff', textColor: '#111' } },
             { label: 'services', href: '/services', ariaLabel: 'Services', rotation: 8, hoverStyles: { bgColor: '#00e5ff', textColor: '#111' } },
             { label: 'packages', href: '/packages', ariaLabel: 'Packages', rotation: 8, hoverStyles: { bgColor: '#00e5ff', textColor: '#111' } },
-            { label: 'contact', href: '/contact', ariaLabel: 'Contact', rotation: -8, hoverStyles: { bgColor: '#00e5ff', textColor: '#111' } }
+            { label: 'contact', href: '/contact', ariaLabel: 'Contact', rotation: -8, hoverStyles: { bgColor: '#00e5ff', textColor: '#111' } },
+            { label: 'blog', href: '/blog', ariaLabel: 'Blog', rotation: 8, hoverStyles: { bgColor: '#00e5ff', textColor: '#111' } }
           ]}
           menuAriaLabel="Toggle navigation"
           menuBg="#060a0f"
