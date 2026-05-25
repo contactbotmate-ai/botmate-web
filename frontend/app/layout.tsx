@@ -8,6 +8,12 @@ export const metadata: Metadata = {
   keywords: ["AI Agency", "Digital Marketing", "SEO", "Social Media Management", "Business Automation", "BotMate"],
   authors: [{ name: "BotMate Team" }],
   robots: "index, follow",
+  icons: {
+    icon: "https://res.cloudinary.com/dh6ibke5w/image/upload/v1779711597/Favicon_BM_1_yvon9j.png",
+    shortcut: "https://res.cloudinary.com/dh6ibke5w/image/upload/v1779711597/Favicon_BM_1_yvon9j.png",
+    apple: "https://res.cloudinary.com/dh6ibke5w/image/upload/v1779711597/Favicon_BM_1_yvon9j.png",
+  },
+  manifest: "/manifest.json",
   openGraph: {
     type: "website",
     locale: "en_US",
