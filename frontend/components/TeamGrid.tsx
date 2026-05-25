@@ -39,7 +39,7 @@ const team: TeamMember[] = [
       "Pallabi Kar heads technology and product development. She ensures every automation and digital solution is fast, scalable and future-ready.",
     icon: Cpu,
     image:
-      "https://res.cloudinary.com/dh6ibke5w/image/upload/v1777274516/pallabi_cqhxki.jpg",
+      "https://res.cloudinary.com/dh6ibke5w/image/upload/v1779704660/Gemini_Generated_Image_2qdbpe2qdbpe2qdb_vqfj82.png",
   },
 ];
 
