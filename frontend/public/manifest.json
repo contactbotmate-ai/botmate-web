@@ -8,12 +8,12 @@
   "theme_color": "#00AFFF",
   "icons": [
     {
-      "src": "https://res.cloudinary.com/dh6ibke5w/image/upload/v1779711597/Favicon_BM_1_yvon9j.png",
+      "src": "/icon-192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "https://res.cloudinary.com/dh6ibke5w/image/upload/v1779711597/Favicon_BM_1_yvon9j.png",
+      "src": "/icon-512.png",
       "sizes": "512x512",
       "type": "image/png"
     }

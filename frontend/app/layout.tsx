@@ -9,9 +9,9 @@ export const metadata: Metadata = {
   authors: [{ name: "BotMate Team" }],
   robots: "index, follow",
   icons: {
-    icon: "https://res.cloudinary.com/dh6ibke5w/image/upload/v1779711597/Favicon_BM_1_yvon9j.png",
-    shortcut: "https://res.cloudinary.com/dh6ibke5w/image/upload/v1779711597/Favicon_BM_1_yvon9j.png",
-    apple: "https://res.cloudinary.com/dh6ibke5w/image/upload/v1779711597/Favicon_BM_1_yvon9j.png",
+    icon: "/icon.png",
+    shortcut: "/favicon.ico",
+    apple: "/apple-icon.png",
   },
   manifest: "/manifest.json",
   openGraph: {
