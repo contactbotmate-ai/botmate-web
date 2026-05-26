@@ -6,12 +6,12 @@ export const metadata: Metadata = {
   description: "Explore BotMate's premium services: AI-driven Digital Marketing, High-Performance Web Development, and Viral Social Media Management. Engineered for scalable growth.",
   keywords: ["AI Marketing", "Next.js Development", "Social Media Growth", "Automation", "BotMate Services"],
   alternates: {
-    canonical: "https://botmate.in/services",
+    canonical: "https://www.botmate.co.in/services",
   },
   openGraph: {
     title: "Our Services | BOTMATE",
     description: "AI-driven digital solutions engineered for growth.",
-    url: "https://botmate.in/services",
+    url: "https://www.botmate.co.in/services",
   },
 };
 

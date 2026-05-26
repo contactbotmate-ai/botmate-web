@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://botmate.in'
+    const baseUrl = 'https://www.botmate.co.in'
 
     return [
         {

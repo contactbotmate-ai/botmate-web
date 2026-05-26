@@ -6,12 +6,12 @@ export const metadata: Metadata = {
   description: "Ready to scale? Contact BotMate today for a free consultation on how AI-driven marketing and automation can grow your business. Our experts are standing by.",
   keywords: ["Contact BotMate", "AI Consultation", "Digital Marketing Bhubaneswar", "Business Growth"],
   alternates: {
-    canonical: "https://botmate.in/contact",
+    canonical: "https://www.botmate.co.in/contact",
   },
   openGraph: {
     title: "Contact BOTMATE | AI Strategy Consultation",
     description: "Start your brand's evolution with a free AI consultation.",
-    url: "https://botmate.in/contact",
+    url: "https://www.botmate.co.in/contact",
   },
 };
 

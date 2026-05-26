@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://botmate.in",
+    url: "https://www.botmate.co.in",
     title: "BOTMATE | Premium AI Agency",
     description: "AI-driven growth strategies for the future of business.",
     siteName: "BotMate",

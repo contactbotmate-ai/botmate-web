@@ -6,12 +6,12 @@ export const metadata: Metadata = {
   description: "Transparent pricing for digital marketing and AI growth packages. Choose the protocol that fits your business stage, from Starter to Enterprise.",
   keywords: ["Marketing Pricing", "AI Packages", "Digital Growth Plans", "BotMate Pricing"],
   alternates: {
-    canonical: "https://botmate.in/packages",
+    canonical: "https://www.botmate.co.in/packages",
   },
   openGraph: {
     title: "Pricing & Packages | BOTMATE",
     description: "Scalable AI-driven marketing solutions for every business stage.",
-    url: "https://botmate.in/packages",
+    url: "https://www.botmate.co.in/packages",
   },
 };
 

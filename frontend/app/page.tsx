@@ -5,12 +5,12 @@ export const metadata: Metadata = {
   title: "BOTMATE | Best Digital Marketing Agency in Bhubaneswar | AI-Driven Results",
   description: "Accelerate your growth with BotMate, Bhubaneswar's leading AI-powered digital marketing agency. We specialize in SEO, social media management, and performance marketing to scale your business.",
   alternates: {
-    canonical: "https://botmate.in",
+    canonical: "https://www.botmate.co.in",
   },
   openGraph: {
     title: "BOTMATE | Best Digital Marketing Agency in Bhubaneswar",
     description: "Scale your business with AI-driven marketing strategies.",
-    url: "https://botmate.in",
+    url: "https://www.botmate.co.in",
   },
 };
 
@@ -24,8 +24,8 @@ export default function Home() {
             "@context": "https://schema.org",
             "@type": "Organization",
             "name": "BotMate",
-            "url": "https://botmate.in",
-            "logo": "https://botmate.in/logo.png",
+            "url": "https://www.botmate.co.in",
+            "logo": "https://www.botmate.co.in/logo.png",
             "description": "AI-powered digital marketing agency specializing in SEO, social media, and business growth.",
             "address": {
               "@type": "PostalAddress",
