@@ -208,12 +208,12 @@ export const POSTS: Record<string, Post> = {
     readTime: "6 min read",
     title: "Why Your Website Is Silently Losing You Customers",
     excerpt: "Page speed, UX failures, and poor conversion architecture — the real reasons your site visitors leave without buying, and exactly how to fix them.",
-    author: "Pallabi Kar",
-    authorInitials: "PK",
+    author: "Dev Dibyansu",
+    authorInitials: "DD",
     date: "April 10, 2025",
     gradient: "linear-gradient(135deg, #00ff9d 0%, #006644 50%, #001a11 100%)",
     image: "https://res.cloudinary.com/dh6ibke5w/image/upload/v1779599139/website-conversions_bwwjk5.jpg",
-    bio: "Pallabi Kar heads technology and product development at BotMate AI. She ensures every automation and digital solution is fast, scalable, and future-ready.",
+    bio: "Dev Dibyansu is the visionary founder and CEO of BotMate AI. He leads the overall strategy, business growth, and long-term direction of the brand.",
     content: {
       intro: "Many businesses invest heavily in driving paid advertising and social media traffic to their websites, only to wonder why their monthly revenue remains stagnant. They focus entirely on top-of-funnel traffic while neglecting the conversion platform itself. In the modern digital economy, users possess an incredibly low tolerance for friction. A beautiful website layout is entirely useless if it takes four seconds to load, hides its pricing structure, or makes finding the checkout button an annoying puzzle. Your website is likely leaking high-intent customers every day.",
       sections: [

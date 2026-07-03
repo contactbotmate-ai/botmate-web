@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Terminal, Shield, Cpu, Zap } from "lucide-react";
+import { Terminal, Shield, Zap } from "lucide-react";
 import Image from "next/image";
 import { StaggerReveal, RevealItem, AnimatedText } from "./AnimationSystem";
 
@@ -31,15 +31,6 @@ const team: TeamMember[] = [
     icon: Zap,
     image:
       "https://res.cloudinary.com/dh6ibke5w/image/upload/v1777274517/advik_ppx2sh.jpg",
-  },
-  {
-    name: "Ms. Pallabi Kar",
-    role: "Director & CTO",
-    description:
-      "Pallabi Kar heads technology and product development. She ensures every automation and digital solution is fast, scalable and future-ready.",
-    icon: Cpu,
-    image:
-      "https://res.cloudinary.com/dh6ibke5w/image/upload/v1779704660/Gemini_Generated_Image_2qdbpe2qdbpe2qdb_vqfj82.png",
   },
 ];
 
