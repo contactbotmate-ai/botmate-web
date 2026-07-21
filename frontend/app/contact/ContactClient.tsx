@@ -149,7 +149,7 @@ function MorphIcon({ type }: { type: "email" | "phone" | "location" }) {
 const CONTACT_METHODS: { icon: "email" | "phone" | "location"; label: string; val: string; sub: string }[] = [
   { icon: "email",    label: "Email Us",  val: "contactbotmate@gmail.com", sub: "Support 24/7" },
   { icon: "phone",    label: "Call Us",   val: "+91 97772 09527",          sub: "Mon-Sat, 9am-7pm" },
-  { icon: "location", label: "Visit Us",  val: "BotMate, N6/354, IRC Village, Nayapalli", sub: "Bhubaneswar ODISHA 751015" },
+  { icon: "location", label: "Visit Us",  val: "BotMate, Plot no. 556/3676, Lane 1, Mallick Complex, Jagamara", sub: "Bhubaneswar ODISHA 751030" },
 ];
 
 function ContactGrid() {
@@ -1074,7 +1074,7 @@ function MapSection() {
           <div className="map-scan" aria-hidden="true" />
 
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3742.808!2d85.8138!3d20.2961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1909d2d5170aa5%3A0x2ac1a3571e4cd5cd!2sN6%2F354%2C%20IRC%20Village%2C%20Nayapalli%2C%20Bhubaneswar%2C%20Odisha%20751015!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin"
+            src="https://maps.google.com/maps?q=Plot+no.+556%2F3676%2C+Lane+1%2C+Mallick+Complex%2C+Jagamara%2C+Bhubaneswar+ODISHA+751030&t=&z=15&ie=UTF8&iwloc=&output=embed"
             width="100%"
             height="400"
             style={{ border: 0, display: "block", filter: "invert(90%) hue-rotate(180deg) saturate(0.8) brightness(0.85)" }}
@@ -1086,8 +1086,8 @@ function MapSection() {
 
           <div className="map-footer">
             <div className="mf-dot" />
-            <span className="mf-text">BotMate, N6/354, IRC Village, Nayapalli, Bhubaneswar ODISHA 751015</span>
-            <a href="https://maps.app.goo.gl/MwUHdeFDNjEeEiJV9" target="_blank" rel="noopener noreferrer" className="mf-link" aria-label="Open office location in Google Maps">
+            <span className="mf-text">BotMate, Plot no. 556/3676, Lane 1, Mallick Complex, Jagamara, Bhubaneswar ODISHA 751030</span>
+            <a href="https://www.google.com/maps/search/?api=1&query=Plot+no.+556%2F3676%2C+Lane+1%2C+Mallick+Complex%2C+Jagamara%2C+Bhubaneswar+ODISHA+751030" target="_blank" rel="noopener noreferrer" className="mf-link" aria-label="Open office location in Google Maps">
               Open in Maps ↗
             </a>
           </div>

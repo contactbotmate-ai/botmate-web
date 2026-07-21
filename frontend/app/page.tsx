@@ -29,10 +29,10 @@ export default function Home() {
             "description": "AI-powered digital marketing agency specializing in SEO, social media, and business growth.",
             "address": {
               "@type": "PostalAddress",
-              "streetAddress": "N6/354, IRC Village, Nayapalli",
+              "streetAddress": "Plot no. 556/3676, Lane 1, Mallick Complex, Jagamara",
               "addressLocality": "Bhubaneswar",
               "addressRegion": "Odisha",
-              "postalCode": "751015",
+              "postalCode": "751030",
               "addressCountry": "IN"
             },
             "sameAs": [

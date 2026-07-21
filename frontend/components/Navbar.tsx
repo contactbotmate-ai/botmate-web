@@ -15,6 +15,7 @@ const NAV_LINKS = [
   { name: "Packages", href: "/packages" },
   { name: "Contact", href: "/contact" },
   { name: "Blog", href: "/blog" },
+  { name: "Portfolio", href: "/portfolio" },
 ];
 
 export default function Navbar() {

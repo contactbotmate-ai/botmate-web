@@ -40,6 +40,13 @@ const DEFAULT_ITEMS = [
     ariaLabel: 'Contact',
     rotation: -8,
     hoverStyles: { bgColor: '#8b5cf6', textColor: '#ffffff' }
+  },
+  {
+    label: 'portfolio',
+    href: '/portfolio',
+    ariaLabel: 'Portfolio',
+    rotation: -8,
+    hoverStyles: { bgColor: '#00e5ff', textColor: '#111' }
   }
 ];
 

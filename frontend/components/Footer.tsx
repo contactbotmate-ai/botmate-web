@@ -173,7 +173,7 @@ export default function GlobalFooter() {
                 </span>
 
                 <span className="footer-contact-val">
-                  BotMate, N6/354, IRC Village, Nayapalli, Bhubaneswar ODISHA 751015
+                  BotMate, Plot no. 556/3676, Lane 1, Mallick Complex, Jagamara, Bhubaneswar ODISHA 751030
                 </span>
               </li>
             </ul>
