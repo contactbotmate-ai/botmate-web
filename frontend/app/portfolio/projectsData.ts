@@ -50,7 +50,7 @@ export const PROJECTS: Project[] = [
     metricBadge: "↑ 31% Sales Growth",
     metricValue: "31%",
     metricLabel: "SALES GROWTH",
-    logoUrl: "/images/shree-radha-groups.png",
+    logoUrl: "/images/shree-radha-groups-clean.png",
     youtubeEmbedId: "dQw4w9WgXcQ",
     testimonial: {
       author: "Mr. Satya Narayan Senapaty",
@@ -79,7 +79,8 @@ export const PROJECTS: Project[] = [
     metricBadge: "↑ 5.0★ Rated Review",
     metricValue: "5.0★",
     metricLabel: "CLIENT RATING",
-    logoUrl: "/images/firstcry-intellitots-logo.jpg",
+    logoUrl: "/images/firstcry-intellitots-clean.png",
+    youtubeEmbedId: "dQw4w9WgXcQ",
     instagramEmbedId: "CqM0LFly-jw",
     testimonial: {
       author: "Nikesh Patro",
@@ -109,7 +110,8 @@ export const PROJECTS: Project[] = [
     metricBadge: "↑ 5.0★ Rated Review",
     metricValue: "4K",
     metricLabel: "VIDEO QUALITY",
-    logoUrl: "/images/sandal-verse-logo.jpg",
+    logoUrl: "/images/sandal-verse-clean.png",
+    youtubeEmbedId: "dQw4w9WgXcQ",
     testimonial: {
       author: "Mr. Amitanshu Rout",
       role: "CEO, Sandal Verse Pvt. Ltd.",
@@ -137,7 +139,8 @@ export const PROJECTS: Project[] = [
     metricBadge: "↑ 4.7★ Rated Designs",
     metricValue: "15+",
     metricLabel: "ASSETS DELIVERED",
-    logoUrl: "/images/kippl-logo.jpg",
+    logoUrl: "/images/kippl-clean.png",
+    youtubeEmbedId: "dQw4w9WgXcQ",
     testimonial: {
       author: "Mr. Ankit Singla",
       role: "CEO, KIPPL",
@@ -164,7 +167,16 @@ export const PROJECTS: Project[] = [
     tags: ["Meta Ads", "Audience Segmentation", "Funnel Optimization"],
     metricBadge: "↑ 5x ROAS in 30 days",
     metricValue: "5x",
-    metricLabel: "ROAS"
+    metricLabel: "ROAS",
+    logoUrl: "/images/technest-clean.png",
+    youtubeEmbedId: "dQw4w9WgXcQ",
+    testimonial: {
+      author: "Mr. Rajesh Malhotra",
+      role: "VP Marketing, TechNest Solutions",
+      text: "BotMate rebuilt our entire paid ads funnel from scratch. Achieving a consistent 5× ROAS month after month has allowed us to scale our acquisition with complete clarity. Exceptional performance marketing execution!",
+      rating: 5,
+      avatarUrl: "/images/satya-narayan-senapaty.jpg"
+    }
   },
   {
     slug: "glowbox-india",
@@ -184,6 +196,15 @@ export const PROJECTS: Project[] = [
     tags: ["AI Chatbot", "WhatsApp API", "CRM Integration"],
     metricBadge: "↑ 80% Queries Automated",
     metricValue: "80%",
-    metricLabel: "QUERIES AUTOMATED"
+    metricLabel: "QUERIES AUTOMATED",
+    logoUrl: "/images/glowbox-clean.png",
+    youtubeEmbedId: "dQw4w9WgXcQ",
+    testimonial: {
+      author: "Priya Sharma",
+      role: "Operations Lead, GlowBox India",
+      text: "The AI chatbot system built by BotMate handles 80% of our customer queries before 9 AM every single day. Response times dropped from hours to instant resolution, boosting customer delight!",
+      rating: 5,
+      avatarUrl: "/images/nikesh-patro.jpg"
+    }
   }
 ];

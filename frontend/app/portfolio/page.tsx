@@ -149,7 +149,7 @@ export default function PortfolioListingPage() {
                           style={project.logoUrl ? { background: project.gradient, display: "flex", alignItems: "center", justifyContent: "center" } : {}}
                         >
                           {project.logoUrl ? (
-                            <div className={["firstcry-intellitots", "sandal-verse", "kippl"].includes(project.slug) ? "card-logo-wrapper logo-bg-white" : "card-logo-wrapper"}>
+                            <div className="card-logo-wrapper">
                               <img src={project.logoUrl} alt={`${project.client} Logo`} className="card-logo-img" />
                             </div>
                           ) : (
@@ -478,13 +478,14 @@ export default function PortfolioListingPage() {
           box-shadow: 0 20px 40px rgba(0, 229, 255, 0.06);
         }
 
-        /* Top dual-tone section */
+        /* Top dual-tone section (Profile box) */
         .project-card-header {
-          height: 150px;
+          height: 180px;
           position: relative;
           display: flex;
-          align-items: flex-end;
-          padding: 20px;
+          align-items: center;
+          justify-content: center;
+          padding: 14px; /* ~1cm border gap */
           overflow: hidden;
         }
 
@@ -492,25 +493,29 @@ export default function PortfolioListingPage() {
           display: flex;
           align-items: center;
           justify-content: center;
+          width: 100%;
+          height: 100%;
           z-index: 2;
-          transition: transform 0.3s ease;
-        }
-
-        .card-logo-wrapper.logo-bg-white {
-          background: #ffffff;
-          padding: 10px 20px;
-          border-radius: 12px;
-          box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15);
+          padding: 8px;
+          transition: transform 0.35s ease;
         }
 
         .card-logo-img {
-          max-height: 70px;
-          max-width: 100%;
+          width: 100%;
+          height: 100%;
+          max-height: 130px;
+          max-width: 90%;
           object-fit: contain;
+          filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.4)) drop-shadow(0 0 10px rgba(0, 229, 255, 0.15));
+          transition: transform 0.35s ease, filter 0.35s ease;
         }
 
         .project-card-link:hover .card-logo-wrapper {
-          transform: scale(1.05);
+          transform: scale(1.06);
+        }
+
+        .project-card-link:hover .card-logo-img {
+          filter: drop-shadow(0 8px 24px rgba(0, 229, 255, 0.45));
         }
 
         .card-header-light {

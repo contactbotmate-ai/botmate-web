@@ -151,7 +151,7 @@ export default function ProjectDetailClient({ project, relatedProjects }: Projec
           <div className="hero-scan-line" aria-hidden="true" />
           <div className="hero-inner">
             {project.logoUrl ? (
-              <div className={["firstcry-intellitots", "sandal-verse", "kippl"].includes(project.slug) ? "hero-logo-img-wrapper logo-bg-white" : "hero-logo-img-wrapper"}>
+              <div className="hero-logo-img-wrapper">
                 <img src={project.logoUrl} alt={`${project.client} Logo`} className="hero-logo-img" />
               </div>
             ) : (
@@ -341,7 +341,11 @@ export default function ProjectDetailClient({ project, relatedProjects }: Projec
                   {/* Visual card top */}
                   <div className="related-card-visual" style={{ background: rp.gradient }}>
                     <ARBrackets size={10} color="rgba(0,229,255,0.2)" thickness={1.5} />
-                    <span className="related-initials">{rp.initials}</span>
+                    {rp.logoUrl ? (
+                      <img src={rp.logoUrl} alt={`${rp.client} Logo`} className="related-card-logo" />
+                    ) : (
+                      <span className="related-initials">{rp.initials}</span>
+                    )}
                     <span className="related-category-badge">{rp.category}</span>
                   </div>
                   {/* Card bottom */}
@@ -477,26 +481,24 @@ export default function ProjectDetailClient({ project, relatedProjects }: Projec
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          margin-bottom: 16px;
+          margin-bottom: 20px;
+          padding: 8px;
           z-index: 1;
-        }
-
-        .hero-logo-img-wrapper.logo-bg-white {
-          background: #ffffff;
-          padding: 10px 24px;
-          border-radius: 14px;
-          box-shadow: 0 6px 25px rgba(255, 255, 255, 0.15);
         }
 
         .hero-logo-img {
           display: block;
-          max-height: 100px;
-          max-width: 250px;
+          max-height: 140px;
+          max-width: 360px;
+          width: auto;
+          height: auto;
           object-fit: contain;
+          filter: drop-shadow(0 6px 20px rgba(0,0,0,0.5)) drop-shadow(0 0 15px rgba(0, 229, 255, 0.3));
+          transition: transform 0.3s ease;
         }
 
-        .hero-logo-img-wrapper:not(.logo-bg-white) .hero-logo-img {
-          filter: drop-shadow(0 0 15px rgba(0,0,0,0.5));
+        .hero-logo-img-wrapper:hover .hero-logo-img {
+          transform: scale(1.05);
         }
 
         .instagram-embed-wrapper {
@@ -1039,6 +1041,21 @@ export default function ProjectDetailClient({ project, relatedProjects }: Projec
           font-weight: 900;
           color: #fff;
           letter-spacing: -1.5px;
+        }
+
+        .related-card-logo {
+          max-height: 100px;
+          max-width: 80%;
+          width: auto;
+          height: auto;
+          object-fit: contain;
+          filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.4)) drop-shadow(0 0 10px rgba(0, 229, 255, 0.15));
+          transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .related-card-link:hover .related-card-logo {
+          transform: scale(1.06);
+          filter: drop-shadow(0 6px 20px rgba(0, 229, 255, 0.4));
         }
 
         .related-category-badge {
