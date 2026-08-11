@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import { motion, useInView, useScroll, useTransform, AnimatePresence, useSpring } from "framer-motion";
@@ -52,15 +53,19 @@ function HUDReadout({ label, value }: { label: string; value: string }) {
 
 
 /* ─────────────────────────────────────────────
-   TRUSTED BY
+   TRUSTED BY / PORTFOLIO LOGOS
 ───────────────────────────────────────────── */
-const BRANDS = [
-  "NovaTech","PixelForge","CloudNine","ZenithAI",
-  "QuantumLeap","FusionLabs","ArcadeMedia","StellarBrands",
+const BRAND_LOGOS = [
+  { name: "Shree Radha Groups", logoUrl: "/images/shree-radha-groups-clean.png", slug: "shree-radha-groups" },
+  { name: "FirstCry Intellitots", logoUrl: "/images/firstcry-intellitots-clean.png", slug: "firstcry-intellitots" },
+  { name: "Sandal Verse", logoUrl: "/images/sandal-verse-clean.png", slug: "sandal-verse" },
+  { name: "KIPPL", logoUrl: "/images/kippl-clean.png", slug: "kippl" },
+  { name: "TechNest Solutions", logoUrl: "/images/technest-clean.png", slug: "technest-solutions" },
+  { name: "GlowBox India", logoUrl: "/images/glowbox-clean.png", slug: "glowbox-india" },
 ];
 
 function TrustedBy() {
-  const doubled = [...BRANDS, ...BRANDS];
+  const quadrupled = [...BRAND_LOGOS, ...BRAND_LOGOS, ...BRAND_LOGOS, ...BRAND_LOGOS];
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
 
@@ -78,12 +83,19 @@ function TrustedBy() {
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ delay: 0.3 }}
       >
-        Trusted by 200+ brands worldwide
+        Trusted by top brands & clients
       </motion.p>
       <div className="marquee-wrapper">
         <div className="marquee-track">
-          {doubled.map((b, i) => (
-            <span key={i} className="marquee-brand">{b}</span>
+          {quadrupled.map((b, i) => (
+            <Link 
+              key={i} 
+              href={`/portfolio/${b.slug}`} 
+              className="marquee-brand-item"
+              title={b.name}
+            >
+              <img src={b.logoUrl} alt={b.name} className="marquee-logo-img" />
+            </Link>
           ))}
         </div>
       </div>
@@ -1023,7 +1035,7 @@ export default function HomeClient() {
 
         /* ══ TRUSTED BY ══ */
         .trusted-section {
-          padding: 28px 0 30px;
+          padding: 28px 0 32px;
           border-top: 1px solid rgba(0,229,255,0.08);
           border-bottom: 1px solid rgba(0,229,255,0.08);
           background: rgba(0,229,255,0.018);
@@ -1035,28 +1047,59 @@ export default function HomeClient() {
           font-weight: 700;
           letter-spacing: .28em;
           text-transform: uppercase;
-          color: rgba(255,255,255,0.28);
-          margin-bottom: 18px;
+          color: rgba(255,255,255,0.35);
+          margin-bottom: 22px;
         }
-        .marquee-wrapper { overflow: hidden; position: relative; width: 100%; }
+        .marquee-wrapper { 
+          overflow: hidden; 
+          position: relative; 
+          width: 100%;
+          mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+          -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+        }
         .marquee-track {
           display: flex;
-          gap: 72px;
+          align-items: center;
+          gap: 64px;
           padding: 10px 0;
           width: max-content;
-          animation: marqueeScroll 30s linear infinite;
+          animation: marqueeScroll 35s linear infinite;
           will-change: transform;
           transform: translateZ(0);
         }
-        .marquee-brand {
-          font-size: 13px; font-weight: 700;
-          color: rgba(255,255,255,0.2);
-          letter-spacing: .1em;
-          text-transform: uppercase;
-          transition: color .3s;
-          white-space: nowrap;
+        .marquee-track:hover {
+          animation-play-state: paused;
         }
-        .marquee-brand:hover { color: rgba(0,229,255,0.55); }
+        .marquee-brand-item {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 52px;
+          padding: 6px 16px;
+          border-radius: 12px;
+          background: rgba(255, 255, 255, 0.03);
+          border: 1px solid rgba(0, 229, 255, 0.08);
+          transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+          text-decoration: none;
+          flex-shrink: 0;
+        }
+        .marquee-brand-item:hover {
+          background: rgba(0, 229, 255, 0.08);
+          border-color: rgba(0, 229, 255, 0.35);
+          transform: translateY(-2px) scale(1.05);
+          box-shadow: 0 8px 24px rgba(0, 229, 255, 0.15);
+        }
+        .marquee-logo-img {
+          height: 38px;
+          max-width: 150px;
+          width: auto;
+          object-fit: contain;
+          filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
+          transition: filter 0.3s ease;
+        }
+        .marquee-brand-item:hover .marquee-logo-img {
+          filter: drop-shadow(0 4px 12px rgba(0, 229, 255, 0.4));
+        }
         @keyframes marqueeScroll {
           from { transform: translateX(0); }
           to   { transform: translateX(-50%); }

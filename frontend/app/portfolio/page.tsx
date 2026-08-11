@@ -449,13 +449,24 @@ export default function PortfolioListingPage() {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
           gap: 24px;
+          align-items: stretch;
+        }
+
+        .projects-grid > :global(div),
+        .projects-grid > div {
+          height: 100%;
+          display: flex;
+          flex-direction: column;
         }
 
         .project-card-link {
           text-decoration: none;
           color: inherit;
           display: flex;
+          flex-direction: column;
           width: 100%;
+          height: 100%;
+          flex: 1;
         }
 
         .project-card {
@@ -480,13 +491,14 @@ export default function PortfolioListingPage() {
 
         /* Top dual-tone section (Profile box) */
         .project-card-header {
-          height: 180px;
+          height: 190px;
           position: relative;
           display: flex;
           align-items: center;
           justify-content: center;
-          padding: 14px; /* ~1cm border gap */
+          padding: 16px;
           overflow: hidden;
+          flex-shrink: 0;
         }
 
         .card-logo-wrapper {
@@ -496,17 +508,17 @@ export default function PortfolioListingPage() {
           width: 100%;
           height: 100%;
           z-index: 2;
-          padding: 8px;
+          padding: 12px;
           transition: transform 0.35s ease;
         }
 
         .card-logo-img {
           width: 100%;
           height: 100%;
-          max-height: 130px;
-          max-width: 90%;
+          max-height: 120px;
+          max-width: 85%;
           object-fit: contain;
-          filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.4)) drop-shadow(0 0 10px rgba(0, 229, 255, 0.15));
+          filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 12px rgba(0, 229, 255, 0.2)) brightness(1.1);
           transition: transform 0.35s ease, filter 0.35s ease;
         }
 
@@ -515,7 +527,7 @@ export default function PortfolioListingPage() {
         }
 
         .project-card-link:hover .card-logo-img {
-          filter: drop-shadow(0 8px 24px rgba(0, 229, 255, 0.45));
+          filter: drop-shadow(0 8px 24px rgba(0, 229, 255, 0.55)) brightness(1.15);
         }
 
         .card-header-light {
@@ -589,6 +601,9 @@ export default function PortfolioListingPage() {
           font-weight: 700;
           color: #ffffff;
           margin: 0 0 10px 0;
+          min-height: 28px;
+          display: flex;
+          align-items: center;
         }
 
         .card-tagline {
@@ -596,6 +611,11 @@ export default function PortfolioListingPage() {
           color: rgba(255, 255, 255, 0.6);
           line-height: 1.5;
           margin: 0 0 20px 0;
+          min-height: 42px;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
         }
 
         .card-tags-row {
@@ -603,6 +623,8 @@ export default function PortfolioListingPage() {
           flex-wrap: wrap;
           gap: 8px;
           margin-bottom: 24px;
+          min-height: 58px;
+          align-content: flex-start;
         }
 
         .tag-pill {

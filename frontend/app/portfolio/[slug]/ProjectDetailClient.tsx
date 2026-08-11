@@ -218,9 +218,6 @@ export default function ProjectDetailClient({ project, relatedProjects }: Projec
                     <iframe
                       src={`https://www.instagram.com/p/${project.instagramEmbedId}/embed`}
                       title={`${project.client} Instagram Video`}
-                      allowTransparency
-                      frameBorder="0"
-                      scrolling="no"
                       className="instagram-iframe"
                     ></iframe>
                   </div>
