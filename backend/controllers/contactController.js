@@ -24,10 +24,10 @@ exports.sendContactEmail = async (req, res) => {
     const cleanPass = (process.env.EMAIL_PASS || 'hmelhziwxgpsgqxn').replace(/\s+/g, '');
 
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
       host: 'smtp.gmail.com',
-      port: 465,
-      secure: true,
+      port: 587,
+      secure: false,
+      requireTLS: true,
       auth: {
         user: emailUser,
         pass: cleanPass,
