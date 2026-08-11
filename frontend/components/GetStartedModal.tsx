@@ -193,8 +193,23 @@ export default function GetStartedModal() {
     }
 
     setLoading(true);
-    // Simulate API request
-    setTimeout(() => {
+    try {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+      const res = await fetch(`${apiUrl}/api/contact`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+          projectType: formData.interest,
+          message: `Waitlist request for interest: ${formData.interest}`,
+        }),
+      });
+
+      if (!res.ok) throw new Error("Failed to submit waitlist request");
+
       setLoading(false);
       setIsSubmitted(true);
       setTimeout(() => {
@@ -220,7 +235,11 @@ export default function GetStartedModal() {
         });
         closeGetStarted();
       }, 3000);
-    }, 1500);
+    } catch (err) {
+      console.error("Waitlist submit error:", err);
+      setLoading(false);
+      alert("Failed to send request. Please try again.");
+    }
   };
 
   return (

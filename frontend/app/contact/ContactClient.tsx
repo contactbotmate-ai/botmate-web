@@ -625,11 +625,40 @@ function RightPanel() {
   const [showThanks, setShowThanks] = useState(false);
   const [projectType, setProjectType] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
-    setTimeout(() => { setStatus("done"); setShowThanks(true); }, 1800);
-    setTimeout(() => setStatus("idle"), 3800);
+
+    try {
+      const formEl = e.currentTarget as HTMLFormElement;
+      const formData = new FormData(formEl);
+      const payload = {
+        name: formData.get("name") || "",
+        phone: formData.get("phone") || "",
+        email: formData.get("email") || "",
+        company: formData.get("company") || "",
+        projectType: projectType || "General Inquiry",
+        message: formData.get("message") || "",
+      };
+
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+      const res = await fetch(`${apiUrl}/api/contact`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) {
+        throw new Error("Failed to send transmission");
+      }
+
+      setStatus("done");
+      setShowThanks(true);
+    } catch (err) {
+      console.error("Submission error:", err);
+      alert("Failed to send message. Please try again.");
+      setStatus("idle");
+    }
   };
 
   const btnLabel = { idle: "Send Transmission", sending: "Transmitting…", done: "✓ Sent" };
