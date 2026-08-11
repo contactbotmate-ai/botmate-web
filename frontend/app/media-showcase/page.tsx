@@ -21,7 +21,8 @@ export default function MediaShowcase() {
 
   const fetchMedia = async () => {
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/media`);
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+      const response = await fetch(`${apiUrl}/api/media`);
       const data = await response.json();
       setMediaLibrary(data);
     } catch (error) {

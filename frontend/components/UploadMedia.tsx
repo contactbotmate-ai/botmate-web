@@ -19,7 +19,8 @@ export default function UploadMedia({ onUploadSuccess }: { onUploadSuccess?: () 
     const token = localStorage.getItem("token");
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/upload`, {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+      const response = await fetch(`${apiUrl}/api/upload`, {
         method: "POST",
         headers: {
           "Authorization": `Bearer ${token}`
