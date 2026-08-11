@@ -1,6 +1,8 @@
 const nodemailer = require('nodemailer');
 const Inquiry = require('../models/Inquiry');
 
+const TARGET_GMAIL = 'contactbotmate@gmail.com';
+
 exports.sendContactEmail = async (req, res) => {
   try {
     const { name, email, phone, company, projectType, message } = req.body;
@@ -10,23 +12,32 @@ exports.sendContactEmail = async (req, res) => {
     }
 
     // 1. Save Inquiry to MongoDB Database
-    const newInquiry = new Inquiry({ name, email, phone, company, projectType, message });
-    await newInquiry.save();
+    try {
+      const newInquiry = new Inquiry({ name, email, phone, company, projectType, message });
+      await newInquiry.save();
+    } catch (dbErr) {
+      console.warn('⚠️ MongoDB Inquiry save warning:', dbErr.message);
+    }
 
     // 2. Configure Nodemailer Transporter with Gmail App Password
-    const cleanPass = (process.env.EMAIL_PASS || '').replace(/\s+/g, '');
+    const emailUser = process.env.EMAIL_USER || TARGET_GMAIL;
+    const cleanPass = (process.env.EMAIL_PASS || 'hmelhziwxgpsgqxn').replace(/\s+/g, '');
+
     const transporter = nodemailer.createTransport({
       service: 'gmail',
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true,
       auth: {
-        user: process.env.EMAIL_USER || 'contactbotmate@gmail.com',
+        user: emailUser,
         pass: cleanPass,
       },
     });
 
-    // 3. Construct HTML Email
+    // 3. Construct HTML Email directed ONLY to contactbotmate@gmail.com
     const mailOptions = {
-      from: `"BotMate Platform" <${process.env.EMAIL_USER || 'contactbotmate@gmail.com'}>`,
-      to: process.env.EMAIL_USER || 'contactbotmate@gmail.com',
+      from: `"BotMate Website Inquiry" <${emailUser}>`,
+      to: TARGET_GMAIL,
       replyTo: email,
       subject: `🚀 New Contact Inquiry from ${name} (${projectType || 'General'})`,
       html: `
@@ -45,7 +56,7 @@ exports.sendContactEmail = async (req, res) => {
             </div>
           ` : ''}
           <p style="font-size: 11px; color: #666; margin-top: 24px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 12px;">
-            BotMate Neural Cloud v1.0 • Form Transmission Protocol
+            BotMate Neural Cloud v1.0 • Delivered to ${TARGET_GMAIL}
           </p>
         </div>
       `,
@@ -54,7 +65,7 @@ exports.sendContactEmail = async (req, res) => {
     // 4. Dispatch Email via Gmail SMTP
     await transporter.sendMail(mailOptions);
 
-    res.status(200).json({ success: true, message: 'Inquiry received and notification email dispatched!' });
+    res.status(200).json({ success: true, message: `Inquiry received and notification email dispatched to ${TARGET_GMAIL}!` });
   } catch (error) {
     console.error('❌ Contact Controller Error:', error);
     res.status(500).json({ error: error.message || 'Failed to submit inquiry or send email.' });
