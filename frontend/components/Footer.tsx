@@ -12,6 +12,8 @@ import {
   Phone,
   MapPin,
   ArrowUpRight,
+  ShieldCheck,
+  Award,
 } from "lucide-react";
 import { useGetStarted } from "@/context/GetStartedContext";
 
@@ -81,6 +83,19 @@ export default function GlobalFooter() {
               >
                 <Facebook size={13} />
               </a>
+            </div>
+
+            {/* ── Udyam Registration Card ── */}
+            <div className="footer-udyam-card">
+              <div className="footer-udyam-header">
+                <ShieldCheck size={14} className="footer-udyam-shield" />
+                <span className="footer-udyam-title">Udyam Registration</span>
+              </div>
+              <div className="footer-udyam-details">
+                <span className="footer-udyam-name">BOTMATE</span>
+                <span className="footer-udyam-sep">•</span>
+                <span className="footer-udyam-num">UDYAM-OD-19-0171241</span>
+              </div>
             </div>
           </div>
 
@@ -176,6 +191,19 @@ export default function GlobalFooter() {
                   BotMate, Plot no. 556/3676, Lane 1, Mallick Complex, Jagamara, Bhubaneswar ODISHA 751030
                 </span>
               </li>
+
+              <li>
+                <span className="footer-contact-icon" title="Udyam Registration Certificate">
+                  <Award size={13} />
+                </span>
+
+                <span className="footer-contact-val">
+                  <span style={{ color: "rgba(255, 255, 255, 0.85)", fontWeight: 500 }}>
+                    Udyam Reg. No:
+                  </span>{" "}
+                  <span className="footer-udyam-code">UDYAM-OD-19-0171241</span>
+                </span>
+              </li>
             </ul>
 
             {/* CTA card */}
@@ -227,6 +255,11 @@ export default function GlobalFooter() {
             <Link href="/terms" className="footer-legal-link">
               Terms of Service
             </Link>
+          </div>
+
+          <div className="footer-udyam-chip">
+            <Award size={12} className="footer-udyam-chip-icon" />
+            <span>Reg: <strong>UDYAM-OD-19-0171241</strong></span>
           </div>
 
           <div className="footer-status">
@@ -587,6 +620,107 @@ export default function GlobalFooter() {
             opacity: 0.6;
             transform: scale(1.25);
           }
+        }
+
+        /* ── Udyam Registration Badge & Card Styles ── */
+        .footer-udyam-card {
+          margin-top: 24px;
+          padding: 12px 14px;
+          border-radius: 8px;
+          background: rgba(0, 229, 255, 0.03);
+          border: 1px solid rgba(0, 229, 255, 0.15);
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+          max-width: 310px;
+          transition: all 0.3s ease;
+          backdrop-filter: blur(8px);
+        }
+
+        .footer-udyam-card:hover {
+          border-color: rgba(0, 229, 255, 0.35);
+          background: rgba(0, 229, 255, 0.06);
+          box-shadow: 0 4px 20px rgba(0, 229, 255, 0.12);
+          transform: translateY(-1px);
+        }
+
+        .footer-udyam-header {
+          display: flex;
+          align-items: center;
+          gap: 7px;
+        }
+
+        .footer-udyam-shield {
+          color: #00e5ff;
+          flex-shrink: 0;
+        }
+
+        .footer-udyam-title {
+          font-size: 10.5px;
+          font-weight: 700;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          color: #00e5ff;
+          opacity: 0.9;
+        }
+
+        .footer-udyam-details {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 12px;
+          flex-wrap: wrap;
+        }
+
+        .footer-udyam-name {
+          font-weight: 700;
+          color: var(--text-primary);
+          letter-spacing: 0.05em;
+        }
+
+        .footer-udyam-sep {
+          color: var(--cyan-border);
+          font-size: 10px;
+        }
+
+        .footer-udyam-num {
+          font-family: monospace;
+          font-size: 11.5px;
+          font-weight: 600;
+          color: rgba(0, 229, 255, 0.9);
+          letter-spacing: 0.04em;
+        }
+
+        .footer-udyam-code {
+          color: #00e5ff;
+          font-family: monospace;
+          font-weight: 600;
+          letter-spacing: 0.04em;
+        }
+
+        .footer-udyam-chip {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          font-size: 11.5px;
+          color: rgba(255, 255, 255, 0.72);
+          background: rgba(0, 229, 255, 0.05);
+          border: 1px solid rgba(0, 229, 255, 0.15);
+          padding: 4px 12px;
+          border-radius: 20px;
+          white-space: nowrap;
+          transition: all 0.25s ease;
+        }
+
+        .footer-udyam-chip:hover {
+          border-color: #00e5ff;
+          color: #00e5ff;
+          box-shadow: 0 0 12px rgba(0, 229, 255, 0.2);
+        }
+
+        .footer-udyam-chip-icon {
+          color: #00e5ff;
+          flex-shrink: 0;
         }
 
         /* ── Responsive ── */

@@ -32,6 +32,34 @@ export interface Project {
 
 export const PROJECTS: Project[] = [
   {
+    slug: "motwani-constructions",
+    client: "Motwani Constructions",
+    industry: "Real Estate & Construction",
+    category: "Web Development",
+    gradient: "linear-gradient(135deg, #1c1917 0%, #44403c 50%, #0c0a09 100%)",
+    initials: "MC",
+    tagline: "Building a high-converting digital presence and PMAY award-winning brand identity for top builders in Odisha.",
+    result: "25+ Yrs Legacy Digitized",
+    metrics: ["25+ Years Legacy", "PMAY Award Winner 2025", "100% Brand Alignment", "4.9★ Client Rating"],
+    challenge: "Motwani Constructions, with over 25 years of real estate excellence and 40 years of leadership in Odisha, needed a modern digital portal and brand strategy to showcase ongoing premium projects like Anantam, Anandam, and Codename Cascade to homebuyers.",
+    solution: "We engineered a high-performance web platform and digital branding suite for Motwani Constructions. Highlighting their PMAY Award 2025 recognition, sustainable building practices, and project tours, we established an authoritative online presence that continuously generates high-intent homeowner inquiries.",
+    website: "https://motwaniconstructions.com",
+    topBadge: "BUILDERS & DEVELOPERS",
+    cardBgType: "dark",
+    tags: ["Web Development", "Brand Identity", "Real Estate Marketing", "UI/UX Design"],
+    metricBadge: "↑ 25+ Yrs Trust Digitized",
+    metricValue: "25+",
+    metricLabel: "YEARS LEGACY",
+    logoUrl: "/images/motwani-constructions-clean.png",
+    testimonial: {
+      author: "Saroj Kumar Das",
+      role: "Founder and Managing Director, Motwani Constructions",
+      text: "BotMate captured the true essence of our 25-year legacy and PMAY award-winning projects. Their web design and digital branding elevated Motwani Constructions' online presence to match our offline reputation of trust and quality. Exceptional team!",
+      rating: 5,
+      avatarUrl: "/images/saroj-kumar-das.jpg"
+    }
+  },
+  {
     slug: "shree-radha-groups",
     client: "Shree Radha Groups",
     industry: "Real Estate & Construction",
